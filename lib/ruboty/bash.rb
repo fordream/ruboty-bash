@@ -6,12 +6,12 @@ module Ruboty
     class Bash < Base
       on(
           /bash\s+(.*)/m,
-          name:        'echo',
-          description: 'repeat your commnad'
+          name:        'bash',
+          description: 'run your bash-command on ruboty'
       )
 
       def bash(message)
-        message.reply(message.match_data[1])
+        message.reply(`#{message.match_data[1]}`)
       end
     end
   end
